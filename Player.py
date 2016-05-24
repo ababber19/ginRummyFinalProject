@@ -92,5 +92,8 @@ class Player:
 		return pointAccrued
 	def addPoints(self, points):
 		self._points += points
+	
+	def resetHand(self)
+		self._hand = []
  
  
