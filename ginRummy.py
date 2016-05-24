@@ -23,7 +23,7 @@ def main():
 			input("%s, press enter to continue, don't let %s see your actions" % (Player1.getName(), Player2.getName())
 			print("\n" * 100) #clearing console because python is silly
 			print("Your hand:\n %a" % Player1.getHand())
-			
+			 
 			
 	
   
