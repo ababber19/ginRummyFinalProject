@@ -11,11 +11,13 @@ class Card:
         self._faceUp = False #default face for card is down 
     def getSuit(self):
         return self._suit
-    def getValue(self)
+    def getValue(self):
         return self._value
     def isFaceUp(self):
         #Returns a bool    
         return self._faceUp
+    def __repr__(self):
+        return "%s of %s" %(self.getValue(), self.getSuit())
 class Deck:
     def __init__(self):
         #the deck is an array of cards
@@ -39,9 +41,12 @@ class DiscardPile:
         self._pile = []
     
     def draw(self):
+        '''
+        Draws the top/last card from the pile
+        '''
         #in case the discard pile is currently empty
         if len(self._pile) == 0:
             return None
         else:
-            return self._pile.pop(0)
+            return self._pile.pop()
             
