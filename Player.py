@@ -7,6 +7,7 @@ class Player:
 		self._name = name 
 		self._hand = [] #empty array for hand 
 		self._points = 0 
+		self._melds = [] #empty array for meld objects 
 #Accessors 
 	def getName(self):
 		return self._name
@@ -14,6 +15,8 @@ class Player:
 		return self._hand
 	def getPoints(self):
 		return self._points 
+	def getSets(self):
+		return self._sets
 #Mutators 
 	def drawCard(self, location):
 		'''
@@ -30,10 +33,10 @@ class Player:
 		:param discardPile: discardPile object initialized in game, same value every time 
 		return: None
 		'''
-		index = self._hand.find(card): #finds the index of the card to pop
+		index = self._hand.find(card) #finds the index of the card to pop
 		dicardedCard = self._hand.pop(index)
 		discardPile._pile.append(card)
-	def makeSet(self, *cards):
+	def makeSet(self, cards):
 		'''
 		This method tests if the cards in the argv can form a legal set and then makes a meld object 
 		:param cards: A tuple of all of the arguments(card objects) passed to the function 
@@ -49,8 +52,8 @@ class Player:
 				return None
 		if legalSet:
 			meld = Meld("Set", setArray)
-			self._hand.append(meld)
-	def makeRun(self, *cards):
+			self._melds.append(meld)
+	def makeRun(self, cards):
 		'''
 		This method tests if the cards in the argv can form a legal run and then makes a meld object
 		:param cards: A tuple of all of the arguments(card objects) passed to the function 
@@ -60,14 +63,14 @@ class Player:
 		#NEED A WAY TO SORT THE LIST OF CARDS EFFECTIVELY 	
 		runArray = [] 
 		prevCard = cards[0] #card to test against for legal run 
-		for i in range(1, len(cards):
+		for i in range(1, len(cards)):
 			if cards[i].getValue() == 1+prevCard.getValue() and cards[i].getSuit == prevCard.getSuit():
 				runArray.append(cards[i])
 			else:
 				return None
 			if legalRun:
 				meld = Meld("Run", runArray)
-				self._hand.append(meld)
+				self._melds.append(meld)
 	def knock(self):
 		'''
 		This method is how a player ends the round. They will have made all of their melds and this will calculate their score by adding meld values and removing
@@ -82,18 +85,12 @@ class Player:
 				pointsAccrued += elt.getPoints()
 			else: #deadwood cards
 				try: #values are strings which works only for non-face cards
-					pointsAccrued -= int(elt.getValue())
+					pointsAccrued -= elt.getValue()
 				except TypeError:
 					if elt.getValue() == "Ace":
 						pointsAccrued -= 1
 					else:
 						pointsAccrued -= 10 
-		global roundOn = False
-		return pointAccrued
-	def addPoints(self, points):
-		self._points += points
-	
-	def resetHand(self)
-		self._hand = []
+		roundOn = False 	
  
  
