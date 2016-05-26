@@ -7,7 +7,6 @@ class Player:
 		self._name = name 
 		self._hand = [] #empty array for hand 
 		self._points = 0 
-		self._melds = [] #empty array for meld objects 
 #Accessors 
 	def getName(self):
 		return self._name
@@ -52,7 +51,7 @@ class Player:
 				return None
 		if legalSet:
 			meld = Meld("Set", setArray)
-			self._melds.append(meld)
+			self._hand.append(meld)
 	def makeRun(self, cards):
 		'''
 		This method tests if the cards in the argv can form a legal run and then makes a meld object
@@ -70,7 +69,7 @@ class Player:
 				return None
 			if legalRun:
 				meld = Meld("Run", runArray)
-				self._melds.append(meld)
+				self._hand.append(meld)
 	def knock(self):
 		'''
 		This method is how a player ends the round. They will have made all of their melds and this will calculate their score by adding meld values and removing
