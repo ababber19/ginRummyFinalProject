@@ -38,7 +38,7 @@ class DiscardPile:
     def __init__(self):
         self._pile = []
     
-    def getTopCard(self):
+    def draw(self):
         #in case the discard pile is currently empty
         if len(self._pile) == 0:
             return None
