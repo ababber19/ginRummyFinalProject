@@ -92,5 +92,3 @@ class Player:
 					else:
 						pointsAccrued -= 10 
 		roundOn = False 	
- 
- 
