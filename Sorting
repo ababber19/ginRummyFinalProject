@@ -1,1 +1,8 @@
-def sort():
+def sorting(hand):
+    print(hand)
+
+    sortedHand = []
+
+    for el in hand:
+        if el.isDigit():
+            sortedHand.append(el)
