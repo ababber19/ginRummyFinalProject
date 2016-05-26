@@ -5,7 +5,7 @@ Final project for Intro to Programming
 This game is your typical Gin Rummy. It's all run in the command line. It works for 2 player who pass the computer back and forth. To ensure that each player doesn't see one another's hands make sure they sit on opposite sides of the table. 
 
 List of Turn Action Commmands 
-Draw- Draws you a card from the pile of your choosing(Deck or Discard), first action of your turn
+Draw- Draws you a card from the pile of your choosing(Deck or Discard), first action of your turn. Invalid location will draw from discard pile
 Make Set- Makes a set (3 or 4 of a kind) from given cards 
 Make Run- Makes a run (Straight Flush) from given cards
 Discard- Moves a given card from your hand to the top of the discard pile. This will also pass the turn to your opponent.
