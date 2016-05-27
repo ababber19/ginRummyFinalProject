@@ -2,6 +2,7 @@
 #Player.py 
 #May 14, 2016
 #Implementation of the Player class
+from Meld import *
 class Player:
 	def __init__(self, name):
 		self._name = name 
@@ -32,9 +33,8 @@ class Player:
 		:param discardPile: discardPile object initialized in game, same value every time 
 		return: None
 		'''
-		index = self._hand.find(card) #finds the index of the card to pop
-		dicardedCard = self._hand.pop(index)
-		discardPile._pile.append(card)
+		
+		discardPile._pile.append(self._hand.pop(card-1))
 	def makeSet(self, cards):
 		'''
 		This method tests if the cards in the argv can form a legal set and then makes a meld object 
@@ -76,7 +76,7 @@ class Player:
 		deadwood values.
 		return: Total points accrued from the current round 
 		'''
-		global roundOn 
+	
 		pointsAccrued = 0 
 
 		for elt in self._hand:
@@ -90,4 +90,3 @@ class Player:
 						pointsAccrued -= 1
 					else:
 						pointsAccrued -= 10 
-		roundOn = False 	
