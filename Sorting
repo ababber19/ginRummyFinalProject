@@ -1,0 +1,27 @@
+from Deck import *
+from random import *
+def sortHand(hand):
+
+    sortedHand = []
+    for el in hand:
+        if el.getSuit() == "Clubs":
+            sortedHand.append(el)
+
+    for el1 in hand:
+        if el1.getSuit() == "Spades":
+            sortedHand.append(el1)
+
+    for el2 in hand:
+        if el2.getSuit() == "Diamonds":
+            sortedHand.append(el2)
+
+    heartsHand = []
+    for el3 in hand:
+        if el3.getSuit() == "Hearts":
+            sortedHand.append(el3)
+
+    return sortedHand
+
+
+han = [Card("Clubs", "Ace"), Card("Hearts", "4"), Card("Hearts", "7"), Card("Hearts", "9"), Card("Hearts", "King"),
+       Card("Clubs", "7"), Card("Clubs", "2"), Card("Clubs", "4"), Card("Clubs", "King")]
